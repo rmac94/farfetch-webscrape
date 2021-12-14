@@ -55,6 +55,6 @@ if __name__ == "__main__":
         session.return_df()
         print(f"Completed page {i+1}")
     session.df_out[['City', 'Country']] = session.df_out['Boutique_Location'].str.split(',', 1, expand=True)
-    session.df_out['Designers'] = session.df_out['Designers'].str.split(",")
+    session.df_out['Designers'] = session.df_out['Designers'].str.split(", ")
     session.df_out = session.df_out.explode('Designers').drop(columns=['Boutique_Location'])
-    session.df_out.to_csv("farfetch-brands-stores-lcation.csv", index = False)
+    session.df_out.to_csv("farfetch-brands-stores-location.csv", index = False)
